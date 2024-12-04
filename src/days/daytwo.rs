@@ -93,10 +93,7 @@ fn check_report_safety_conditions(report_data: Vec<i32>) -> bool {
             println!("dddd {}", row_number);
             prev_number - row_number
         };
-        if diff <= 0 {
-            faults = faults + 1;
-            prev_number = row_number
-        } else if !(diff <= 3 && diff >= 1) {
+        if !(diff <= 3 || diff >= 1) {
             faults = faults + 1;
             prev_number = row_number
         } else {
