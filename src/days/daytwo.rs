@@ -4,7 +4,7 @@ use std::path::Path;
 
 pub fn daytwo() -> io::Result<()> {
     // Define the file path
-    // let file_path = "./testDataTwoProvided.txt";
+    // let file_path = "./testData.txt";
     let file_path = "./smallGood.txt";
     let mut its_good = 0;
 
@@ -90,13 +90,15 @@ fn check_report_safety_conditions(report_data: Vec<i32>) -> bool {
             row_number - prev_number
         } else {
             println!("decrease {}", prev_number - row_number);
-            println!("dddd {}", row_number);
+            println!("el {}", row_number);
             prev_number - row_number
         };
-        if !(diff <= 3 || diff >= 1) {
+        if diff > 3 || diff < 1 {
             faults = faults + 1;
-            prev_number = row_number
+            println!("dddd {}", prev_number);
+            // prev_number = row_number
         } else {
+            println!(" {} is now {}", prev_number, row_number);
             prev_number = row_number;
         }
         if faults > 1 {
